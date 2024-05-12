@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Application Form</title>
-        <link rel="stylesheet" href="login_style.css">
+        <link rel="stylesheet" href="form_style.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
 
     </head>
@@ -38,8 +38,7 @@
         <div id="container" >
           
             <h2 id="form-title">Application Form <hr></h2><br>
-           <form action="process_form.php" method="post" >
-
+           <form action="process_form.php" method="post" enctype="multipart/form-data">
                 <div id="firstrow">
                     <div id="Fname">
                         <p class="box-title">Full Name</p>
@@ -272,7 +271,7 @@
             <div id="ninethrow">
                 <div id="letter">
                     <p class="box-title">Cover Letter or Additional Information</p>
-                    <label for="cover-letter" class="cover-letter">
+                    <label for="coverletter" class="cover-letter">
                         <textarea id="coverletter" name="coverletter" rows="5" placeholder="Type here..."></textarea>
                     </label>
                 </div>

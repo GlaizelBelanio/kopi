@@ -185,7 +185,7 @@ section{
 
 
 .home{
-    background-image: url('bg1.png');
+    background-image: url(img_main/bg1.png);
     background-position: center;
     background-attachment: scroll;
     background-size: cover;
