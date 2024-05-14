@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Create connection
-    $conn = new mysqli('localhost', 'root', '', 'applicants');
+    $conn = new mysqli('localhost', 'root', '', 'coffeedb');
 
     // Check connection
     if ($conn->connect_error) {

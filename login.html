@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="loginStyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="container">
+    <div class="bg">
+        <div class="box login">
+            <h2>Already have an account?</h2>
+            <button class="Lbtn">Log in</button>
+        </div>
+        <div class="box signup">
+            <h2>New here?</h2>
+            <button class="Sbtn">Sign up</button>
+        </div>
+    </div>
+    <div class="form1">
+        <div class="f Log">
+            <form >
+                <h3>Log In</h3>
+                <input type="text" placeholder="Username">
+                <input type="password" placeholder="Password">
+                <input type="submit" value="Login">
+                <a href="#" class="forgot">Forgot Password</a>
+            </form>
+        </div>
+
+        <div class="f Sign">
+            <form >
+                <h3>Create an Account</h3>
+                <input type="text" placeholder="Username">
+                <input type="text" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <input type="password" placeholder="Confirm Password">
+                <input type="submit" value=" Sign Up">
+        
+            </form>
+        </div>
+
+
+    </div>
+
+</div>
+  </div>
+
+  <script>
+    const Sbtn = document.querySelector('.Sbtn');
+    const Lbtn = document.querySelector('.Lbtn');
+    const form1 = document.querySelector('.form1');
+    const body = document.querySelector('body');
+
+    Sbtn.onclick = function(){
+        form1.classList.add('active')
+        body.classList.add('active')
+    }
+
+    Lbtn.onclick = function(){
+        form1.classList.remove('active')
+        body.classList.remove('active')
+
+    }
+
+  </script>
+</body>
+</html>
