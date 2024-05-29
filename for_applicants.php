@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Create connection
-    $conn = new mysqli('localhost', 'root', '', 'coffeedb');
+    $conn = new mysqli('localhost', 'root', '', 'jakesdb');
 
     // Check connection
     if ($conn->connect_error) {
@@ -41,7 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt->execute()) {
             // Move the file to the desired location only if registration is successful
             if (move_uploaded_file($file_tmp, 'uploads/' . $file_name)) {
-                echo "Registration Success";
+                echo "<script>alert('Application submitted!'); window.location='form.html';</script></script>";
+                ;
             } else {
                 echo "Error moving file";
             }

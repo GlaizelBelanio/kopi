@@ -7,15 +7,6 @@ html,body{
 }
 
 
-
-#img{
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    max-width: 100%;
-    height: auto;
-}
-
 .header{
     position: fixed;
     top: 0;

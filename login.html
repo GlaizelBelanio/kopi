@@ -1,52 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="loginStyle.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="loginForm.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+  
 </head>
+
 <body>
+
+  <header class="header">
+    <div class="logo">
+        <a href="#">
+            <img src="img_main/logo.png" alt="">
+        </a>
+    </div>
+    <div class="navigation">
+        <input type="checkbox" class="toggle">
+        <div class="hamburger"></div>
+        <ul class="Nav">
+            <li><a href="main.html">Home</a></li>
+            <li><a href="main.html">Menu</a></li>
+            <li><a href="main.html">Music</a></li>
+            <li><a href="main.html">Job</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+  </header>
+
   <div class="container">
     <div class="bg">
-        <div class="box login">
-            <h2>Already have an account?</h2>
-            <button class="Lbtn">Log in</button>
-        </div>
-        <div class="box signup">
-            <h2>New here?</h2>
-            <button class="Sbtn">Sign up</button>
-        </div>
+      <div class="box login">
+        <h2>Already brewed up an account? Log in to enjoy your personalized coffee experience."</h2>
+        <button class="Lbtn">Log in</button>
+      </div>
+      <div class="box signup">
+        <h2>New here? Join our coffee community and start brewing your personalized experience today!</h2>
+        <button class="Sbtn">Sign up</button>
+      </div>
     </div>
     <div class="form1">
-        <div class="f Log">
-            <form >
-                <h3>Log In</h3>
-                <input type="text" placeholder="Username">
-                <input type="password" placeholder="Password">
-                <input type="submit" value="Login">
-                <a href="#" class="forgot">Forgot Password</a>
-            </form>
-        </div>
+      <div class="f Log">
+        <form id="loginForm" method="post" action="for_logs.php" onsubmit="return handleFormSubmit();">
+          <h3>Welcome back!</h3>
+          <input type="text" placeholder="Username" id="inputUser" name="username">
+          <input type="password" placeholder="Password" id="inputPass" name="pass">
+          <input type="submit" value="Login">
+          <input type="submit" id="adminLog" value= "Log as Admin" style="color: brown; background-color: white; padding: 0; text-decoration: underline;">
+        </form>
+      </div>
 
-        <div class="f Sign">
-            <form >
-                <h3>Create an Account</h3>
-                <input type="text" placeholder="Username">
-                <input type="text" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <input type="password" placeholder="Confirm Password">
-                <input type="submit" value=" Sign Up">
-        
-            </form>
-        </div>
-
-
+      <div class="f Sign">
+        <form id="signupForm" method="post" action="for_accounts.php">
+          <h3>Create an Account</h3>
+          <span class="error-message"></span> 
+          <input type="text" placeholder="Username" required id="username" name="username">
+          <input type="email" placeholder="Email" required id="email" name="email">
+          <input type="password" placeholder="Password: 8+ chars, mix of types" required id="password" name="pass" 
+                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+          <input type="password" placeholder="Confirm Password" id="confirmPassword" required>
+          <input type="submit" value="Sign Up" disabled>
+        </form>
+      </div>
     </div>
-
-</div>
   </div>
 
   <script>
@@ -54,18 +73,60 @@
     const Lbtn = document.querySelector('.Lbtn');
     const form1 = document.querySelector('.form1');
     const body = document.querySelector('body');
+    const signupForm = document.getElementById('signupForm');
+    const errorMessage = signupForm.querySelector('.error-message');
+    const submitBtn = signupForm.querySelector('input[type="submit"]');
 
-    Sbtn.onclick = function(){
-        form1.classList.add('active')
-        body.classList.add('active')
+    Sbtn.onclick = function() {
+      form1.classList.add('active');
+      body.classList.add('active');
     }
 
-    Lbtn.onclick = function(){
-        form1.classList.remove('active')
-        body.classList.remove('active')
-
+    Lbtn.onclick = function() {
+      form1.classList.remove('active');
+      body.classList.remove('active');
     }
 
+    signupForm.addEventListener('keyup', function(event) {
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const passwordsMatch = password === confirmPassword;
+
+      submitBtn.disabled = !passwordsMatch;
+
+      // Only show the error message if both fields are not empty and passwords do not match
+      if (password && confirmPassword && !passwordsMatch) {
+        errorMessage.textContent = 'Passwords do not match';
+        errorMessage.classList.add('error');
+      } else {
+        errorMessage.textContent = '';
+        errorMessage.classList.remove('error');
+      }
+    });
+
+    // Prevent form submission if fields are empty (basic validation)
+    signupForm.addEventListener('submit', function(event) {
+      const allFieldsFilled = Array.from(signupForm.elements)
+        .filter(field => field.type !== 'submit')
+        .every(field => field.value.trim() !== '');
+      if (!allFieldsFilled) {
+        event.preventDefault();
+        errorMessage.textContent = 'Please fill in all required fields.';
+        errorMessage.classList.add('error');
+      } 
+    });
+
+    function handleFormSubmit() {
+        // Check if the "Log as Admin" button was clicked
+        if (document.activeElement.id === 'adminLog') {
+            // Change the form action to the admin login PHP file
+            document.getElementById('loginForm').action = 'for_adminLog.php';
+        }
+        return true; // Continue with form submission
+    }
+
+   
   </script>
 </body>
+
 </html>
