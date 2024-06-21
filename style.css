@@ -137,6 +137,7 @@
 
 
 
+
 @media screen and (max-width: 992px) {
   .hamburger, .toggle{
     display: block;
@@ -172,6 +173,9 @@
        
         
     }
+    #img {
+        display: none;
+    }
     
 }
 
@@ -179,7 +183,7 @@
 
 
 section{
-    padding: 18% 12% 12%;
+    padding: 18% 10% 12%;
 }
 
 
@@ -240,7 +244,7 @@ section{
     display: flex;
     flex-direction: column;
     position: relative;
-    top: 120px;
+    top: 100px;
     font-size: 20px;
     letter-spacing: 5px;
     font-weight: 600;
@@ -248,14 +252,16 @@ section{
 }
 
 
+
 @media screen and (max-width: 768px) {
     .home h1 {
-        margin-top: 3%;
+        margin-top: -35%;
         font-size: 72px;
         letter-spacing: 4px;
     }
 
     .home .exp {
+        
         font-size: 18px;
         letter-spacing: 8px;
     }
@@ -265,7 +271,7 @@ section{
     }
 
     .loc {
-        top: 60px;
+        top: 30px;
         font-size: 16px;
         letter-spacing: 3px;
     }
@@ -274,12 +280,24 @@ section{
         display: none;
     }
 
+    section {
+        padding: 20% 4% 4%;
+    }
+    .home h1 {
+        margin-top: -10%;
+      
+    }
+    section {
+        padding: 30% 4% 4%;
+    }
+
     
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 576px) {
+
     .home h1 {
-        margin-top: 3%;
+        margin-top: -15%;
         font-size: 48px;
         letter-spacing: 2px;
     }
@@ -294,7 +312,38 @@ section{
     }
 
     .loc {
-        top: 30px;
+        top: 20px;
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+
+    #img {
+        display: none;
+    }
+    section {
+        padding: 30% 4% 4%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .home h1 {
+        margin-top: -10%;
+        font-size: 48px;
+        letter-spacing: 2px;
+    }
+
+    .home .exp {
+        font-size: 16px;
+        letter-spacing: 6px;
+    }
+
+    .button button {
+       margin-top: 45px;
+        font-size: 15px;
+    }
+
+    .loc {
+        top: 10px;
         font-size: 14px;
         letter-spacing: 2px;
     }
@@ -304,6 +353,82 @@ section{
     }
 
 }
+@media screen and (max-width: 280px) {
+   
+    #img {
+        display: none;
+    }
+
+    section {
+        padding: 30% 4% 4%;
+    }
+
+    
+    .menu{
+        margin-top: 150px;
+    }
+
+    .music {
+        margin-top: 30px;
+    }
+
+    .job {
+        margin-top: 30px;
+    }
+
+    .home h1 {
+        margin-top: 10%;
+        font-size: 36px;
+        letter-spacing: 2px;
+    }
+
+    .home .exp {
+        font-size: 14px;
+        letter-spacing: 6px;
+    }
+
+    .button button {
+        margin-top: 30px;
+        font-size: 10px;
+        padding: 8px;
+        letter-spacing: 3px;
+    }
+
+    .loc {
+        top: 10px;
+        font-size: 12px;
+        letter-spacing: 3px;
+    }
+
+    .Menu h2,
+    .music h2,
+    .job h2 {
+        margin-top: -12%;
+        font-size: 12px;
+        letter-spacing: 3px;
+    }
+
+    .card,
+    .music-card,
+    .job-card {
+        width: 90%;
+        height: auto;
+        margin: 20px auto;
+    }
+
+    .card h1,
+    .music-card h1,
+    .job-card h1,
+    .card p,
+    .music-card p,
+    .job-card p {
+        font-size: 10px;
+    }
+
+
+    
+}
+
 
 .Menu h2{
     margin-top: -17%;

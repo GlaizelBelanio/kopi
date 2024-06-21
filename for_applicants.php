@@ -37,7 +37,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         $stmt->bind_param("ssssssssssissss", $fname, $lname, $email, $region, $province, $city, $brgy, $zipStreet, $position, $countryCode, $phoneNum, $letter, $dob, $workType, $file_name);
 
-        // Execute the query
         if ($stmt->execute()) {
             // Move the file to the desired location only if registration is successful
             if (move_uploaded_file($file_tmp, 'uploads/' . $file_name)) {
